@@ -2,6 +2,7 @@ import {resources} from "/src/Resource.js";
 import {Sprite} from "/src/Sprite.js";
 import {Vector2} from "/src/Vector2.js";
 import {GameLoop} from "/src/GameLoop.js";
+import {DOWN, Input, LEFT, RIGHT, UP} from "/src/Input.js";
 
 
 const canvas = document.querySelector("#game-canvas");
@@ -32,10 +33,24 @@ const hero = new Sprite({
 
 const heroPos = new Vector2(16 * 10, 16 * 5);
 
+const input = new Input();
+
 const update = () => {
     // Updating entities in the game
-    heroPos.x += 1;
-}
+    if(input.direction === DOWN){
+        heroPos.y += 1;
+    }
+    if(input.direction === LEFT){
+        heroPos.x -= 1;
+    }
+    if(input.direction === UP){
+        heroPos.y -= 1;
+    }
+    if(input.direction === RIGHT){
+        heroPos.x += 1
+    }
+
+};
 
 const draw = () => {
     skySprite.drawImage(ctx, 0, 0);

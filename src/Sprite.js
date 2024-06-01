@@ -1,7 +1,8 @@
-import {resources} from "./Resource.js";
 import {Vector2} from "./Vector2.js";
+import {GameObject} from "/LifeMap-Adventure/src/GameObject.js";
 
-export class Sprite{
+
+export class Sprite extends GameObject {
     constructor({
         resource, // Image we want to draw
         frameSize, // Size of the crop of the image
@@ -12,6 +13,7 @@ export class Sprite{
         position,
         animation,
         }) {
+        super({});
         this.resource = resource;
         this.frameSize = frameSize ?? new Vector2(16,16);
         this.hFrames = hFrames ?? 1;

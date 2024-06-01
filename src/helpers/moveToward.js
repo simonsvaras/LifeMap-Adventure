@@ -1,5 +1,5 @@
+// For moving in grid
 
-// For moving on grid
 export function moveTowards(person, destinationPosition, speed) {
     let distanceToTravelX = destinationPosition.x - person.position.x;
     let distanceToTravelY = destinationPosition.y - person.position.y;

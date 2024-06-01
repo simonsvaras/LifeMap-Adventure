@@ -1,8 +1,7 @@
-export  const  gridCells = n => {
+export const gridCells = n => {
     return n * 16;
 }
 
-// Takes list of wall, x and y and says if anything is there or not 
 export const isSpaceFree = (walls, x, y) => {
     // Convert to string format for easy lookup
     const str = `${x},${y}`;

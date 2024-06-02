@@ -1,9 +1,11 @@
 import {Vector2} from "./Vector2.js";
+import {events} from "./Events.js";
 
 export class GameObject{
     constructor({position}) {
         this.position = position ?? new Vector2(0,0)
         this.children = [];
+        this.parent = null;
     }
 
 
@@ -39,13 +41,22 @@ export class GameObject{
         //...
     }
 
+    // Remove from tree
+    destroy() {
+        this.children.forEach(child => {
+            child.destroy();
+        })
+        this.parent.removeChild(this)
+    }
 
     /* Other Game Objects are nestable inside this one */
     addChild(gameObject){
+        gameObject.parent = this;
         this.children.push(gameObject);
     }
 
     removeChild(gameObject){
+        events.unsubscribe(gameObject);
         this.children = this.children.filter(g => {
             return gameObject !== g;
         })

@@ -7,6 +7,7 @@ import {gridCells, isSpaceFree} from "/src/helpers/grid.js";
 import {GameObject} from "./src/GameObject.js";
 import {Hero} from "./src/objects/hero/Hero.js";
 import {Camera} from "./src/Camera.js";
+import {Rod} from "./src/objects/Rod/Rod.js";
 
 // Grabbing the canvas to draw to
 const canvas = document.querySelector("#game-canvas");
@@ -31,11 +32,14 @@ const groundSprite = new Sprite({
 
 mainScene.addChild(groundSprite);
 
-const hero = new Hero(gridCells(4), gridCells(4));
+const hero = new Hero(gridCells(6), gridCells(5));
 mainScene.addChild(hero);
 
 const  camera = new Camera();
 mainScene.addChild(camera);
+
+const rod = new Rod(gridCells(7), gridCells(6))
+mainScene.addChild(rod)
 
 
 mainScene.input = new Input();

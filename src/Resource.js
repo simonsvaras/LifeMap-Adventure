@@ -6,6 +6,7 @@ class Resource{
             ground: "/public/sprites/ground.png",
             hero: "/public/sprites/hero-sheet.png",
             shadow: "/public/sprites/shadow.png",
+            rod: "/public/sprites/rod.png",
         };
         // A bucket to keep all of our images
         this.images = {};

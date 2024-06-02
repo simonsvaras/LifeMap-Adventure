@@ -8,6 +8,7 @@ import {resources} from "../../Resource.js";
 import {Animations} from "../../Animations.js";
 import {FrameIndexPattern} from "../../FrameIndexPattern.js";
 import {
+    PICK_UP_DOWN,
     STAND_DOWN,
     STAND_LEFT,
     STAND_RIGHT,
@@ -50,6 +51,7 @@ export class Hero extends GameObject {
                 standDown: new FrameIndexPattern(STAND_DOWN),
                 standLeft: new FrameIndexPattern(STAND_LEFT),
                 standRight: new FrameIndexPattern(STAND_RIGHT),
+                pickUpDown: new FrameIndexPattern(PICK_UP_DOWN),
             })
         })
 
@@ -58,10 +60,22 @@ export class Hero extends GameObject {
 
         this.facingDirection = DOWN;
         this.destinationPosition = this.position.duplicate();
+        this.itemPickupTime = 0;
+        this.itemPickupShell = null;
+
+
+        events.on("HERO_PICKS_UP_ITEM", this, data => {
+            this.onPickUpItem(data);
+        })
     }
 
 
     step(delta, root) {
+        if(this.itemPickupTime > 0){
+            this.workOnItemPickup(delta);
+            return
+        }
+
         const distance = moveTowards(this, this.destinationPosition, 1) ;
         const hasArrived = distance <= 0;
         // Attempt to move again if the hero is at his position
@@ -123,5 +137,31 @@ export class Hero extends GameObject {
             this.destinationPosition.y = nextY;
             //this.position = this.destinationPosition;
         }
+    }
+
+    onPickUpItem({ image, position }) {
+        // Make sure we land right on the item
+        this.destinationPosition = position.duplicate();
+
+        // Start the pickup animation
+        this.itemPickupTime = 500; // ms
+
+        this.itemPickupShell = new GameObject({});
+        this.itemPickupShell.addChild(new Sprite({
+            resource: image,
+            position: new Vector2(0, -18)
+        }))
+        this.addChild(this.itemPickupShell);
+    }
+
+    workOnItemPickup(delta) {
+        this.itemPickupTime -= delta;
+        this.body.animation.play("pickUpDown")
+
+        // Remove the item being held overhead
+        if (this.itemPickupTime <= 0) {
+            this.itemPickupShell.destroy();
+        }
+
     }
 }

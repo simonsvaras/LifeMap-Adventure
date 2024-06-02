@@ -23,7 +23,6 @@ const skySprite = new Sprite({
     frameSize: new Vector2(320,180)
 })
 
-mainScene.addChild(skySprite);
 
 const groundSprite = new Sprite({
     resource: resources.images.ground,
@@ -51,6 +50,8 @@ const update = (delta) => {
 const draw = () => {
     // Clear anything stale
     ctx.clearRect(0,0, canvas.width, canvas.height);
+
+    skySprite.drawImage(ctx,0,0)
 
     // Save the current state (for the camera)
     ctx.save();

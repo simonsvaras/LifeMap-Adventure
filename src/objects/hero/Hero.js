@@ -18,6 +18,7 @@ import {
     WALK_UP
 } from "./heroAnimation.js";
 import {moveTowards} from "../../helpers/moveToward.js";
+import {events} from "../../Events.js";
 
 export class Hero extends GameObject {
     constructor(x,y) {
@@ -68,7 +69,17 @@ export class Hero extends GameObject {
             this.tryMove(root);
         }
 
+        this.tryEmitPosition()
 
+    }
+
+    tryEmitPosition(){
+        if (this.lastX === this.position.x && this.lastY === this.position.y) {
+            return;
+        }
+        this.lastX = this.position.x;
+        this.lastY = this.position.y;
+        events.emit("HERO_POSITION", this.position)
     }
 
     tryMove (root) {

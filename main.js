@@ -6,6 +6,7 @@ import {DOWN, Input, LEFT, RIGHT, UP} from "/src/Input.js";
 import {gridCells, isSpaceFree} from "/src/helpers/grid.js";
 import {GameObject} from "./src/GameObject.js";
 import {Hero} from "./src/objects/hero/Hero.js";
+import {Camera} from "./src/Camera.js";
 
 // Grabbing the canvas to draw to
 const canvas = document.querySelector("#game-canvas");
@@ -34,6 +35,9 @@ mainScene.addChild(groundSprite);
 const hero = new Hero(gridCells(4), gridCells(4));
 mainScene.addChild(hero);
 
+const  camera = new Camera();
+mainScene.addChild(camera);
+
 
 mainScene.input = new Input();
 
@@ -45,7 +49,20 @@ const update = (delta) => {
 
 
 const draw = () => {
-    mainScene.draw(ctx,0,0)
+    // Clear anything stale
+    ctx.clearRect(0,0, canvas.width, canvas.height);
+
+    // Save the current state (for the camera)
+    ctx.save();
+
+    // Offset by camera position
+    ctx.translate(camera.position.x, camera.position.y);
+
+    // Draw object in the mounted scene
+    mainScene.draw(ctx, 0,0);
+
+    // Restore to origin state
+    ctx.restore();
 }
 
 

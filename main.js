@@ -4,11 +4,6 @@ import {Vector2} from "/src/Vector2.js";
 import {GameLoop} from "/src/GameLoop.js";
 import {DOWN, Input, LEFT, RIGHT, UP} from "/src/Input.js";
 import {gridCells, isSpaceFree} from "/src/helpers/grid.js";
-import {moveTowards} from "/src/helpers/moveToward.js";
-import {walls} from "/src/levels/level1.js";
-import {FrameIndexPattern} from "/src/FrameIndexPattern.js";
-import {STAND_DOWN, STAND_LEFT, STAND_RIGHT, STAND_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP} from "/src/objects/hero/heroAnimation.js";
-import {Animations} from "/src/Animations.js";
 import {GameObject} from "./src/GameObject.js";
 import {Hero} from "./src/objects/hero/Hero.js";
 
@@ -36,7 +31,7 @@ const groundSprite = new Sprite({
 
 mainScene.addChild(groundSprite);
 
-const hero = new Hero(gridCells(6), gridCells(6));
+const hero = new Hero(gridCells(4), gridCells(4));
 mainScene.addChild(hero);
 
 

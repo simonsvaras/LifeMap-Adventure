@@ -6,7 +6,7 @@ export class Sprite extends GameObject {
     constructor({
         resource, // Image we want to draw
         frameSize, // Size of the crop of the image
-        hFrames, // How sprite arranged horizontall
+        hFrames, // How sprite arranged horizontally
         vFrames, // How sprite arranged vertically
         frame, // which frame we want to show
         scale, // How large to draw this image

@@ -3,8 +3,21 @@ html, body {
   margin: 0;
   overflow: hidden;
   image-rendering: pixelated;
+  background-image: url('./LifeMap-adventure/public/sprites/sky.png');
+
 }
+
 canvas{
   width: 100%;
-  background: blue;
+
+}
+
+#start-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }

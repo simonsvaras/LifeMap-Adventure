@@ -3,7 +3,7 @@ class Resource{
         // Everything we want to download
         this.toLoad = {
             sky: "/public/sprites/sky.png",
-            ground: "/public/sprites/ground.png",
+            ground: "/public/sprites/mapV1.png",
             hero: "/public/sprites/hero-sheet.png",
             shadow: "/public/sprites/shadow.png",
             rod: "/public/sprites/rod.png",

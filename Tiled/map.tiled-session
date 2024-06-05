@@ -1,0 +1,148 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "Map/mapV1.tmx",
+    "expandedProjectPaths": [
+        ".",
+        "buildings",
+        "Map",
+        "trees",
+        "miscellenaus",
+        "Ships",
+        "ground"
+    ],
+    "fileStates": {
+        "Map/mapV1.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 545.5,
+                "y": 834.5
+            }
+        },
+        "Map/test1.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 184.99999999999997,
+                "y": 117.66666666666663
+            }
+        },
+        "Ships/TransportShip.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "Ships/WarShip.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "buildings/Houses.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "buildings/Market.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "buildings/Taverns.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "ground/Cliff-Water.tsx": {
+            "scaleInDock": 0.33,
+            "scaleInEditor": 1
+        },
+        "ground/Cliff.tsx": {
+            "scaleInDock": 1.5,
+            "scaleInEditor": 1
+        },
+        "ground/Grass.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "ground/Shore.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "ground/TexturedGrass.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "miscellenaus/Bridge.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "punnyWorld/punyworld-overworld-tileset.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "trees/CoconutTrees.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "trees/Rocks.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "trees/Trees.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "trees/Tumbleweed.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "trees/Wheatfield.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "C:/Users/svark/Downloads",
+    "map.height": 100,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 100,
+    "openFiles": [
+        "Map/mapV1.tmx",
+        "trees/Trees.tsx",
+        "trees/Rocks.tsx",
+        "trees/Tumbleweed.tsx",
+        "trees/Wheatfield.tsx",
+        "miscellenaus/Bridge.tsx",
+        "ground/Grass.tsx",
+        "ground/Cliff-Water.tsx",
+        "ground/Cliff.tsx",
+        "buildings/Houses.tsx",
+        "buildings/Taverns.tsx",
+        "buildings/Market.tsx",
+        "trees/CoconutTrees.tsx",
+        "ground/TexturedGrass.tsx",
+        "ground/Shore.tsx",
+        "Ships/TransportShip.tsx",
+        "Ships/WarShip.tsx",
+        "punnyWorld/punyworld-overworld-tileset.tsx"
+    ],
+    "project": "map.tiled-project",
+    "recentFiles": [
+        "punnyWorld/punyworld-overworld-tileset.tsx",
+        "Ships/WarShip.tsx",
+        "Ships/TransportShip.tsx",
+        "ground/Shore.tsx",
+        "ground/TexturedGrass.tsx",
+        "trees/CoconutTrees.tsx",
+        "buildings/Market.tsx",
+        "buildings/Taverns.tsx",
+        "buildings/Houses.tsx",
+        "ground/Cliff.tsx",
+        "ground/Cliff-Water.tsx",
+        "ground/Grass.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

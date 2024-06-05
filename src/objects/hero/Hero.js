@@ -63,6 +63,7 @@ export class Hero extends GameObject {
         this.itemPickupTime = 0;
         this.itemPickupShell = null;
 
+        this.stepSound = document.getElementById('step-effect');
 
         events.on("HERO_PICKS_UP_ITEM", this, data => {
             this.onPickUpItem(data);
@@ -76,7 +77,7 @@ export class Hero extends GameObject {
             return
         }
 
-        const distance = moveTowards(this, this.destinationPosition, 1) ;
+        const distance = moveTowards(this, this.destinationPosition, 1.5) ;
         const hasArrived = distance <= 0;
         // Attempt to move again if the hero is at his position
         if(hasArrived){
@@ -116,18 +117,22 @@ export class Hero extends GameObject {
         if(input.direction === DOWN){
             nextY += gridSize;
             this.body.animation.play("walkDown");
+            this.stepSound.play();
         }
         if(input.direction === LEFT){
             nextX -= gridSize;
             this.body.animation.play("walkLeft");
+            this.stepSound.play();
         }
         if(input.direction === UP){
             nextY -= gridSize;
             this.body.animation.play("walkUp");
+            this.stepSound.play();
         }
         if(input.direction === RIGHT){
             nextX += gridSize;
             this.body.animation.play("walkRight");
+            this.stepSound.play();
         }
         this.facingDirection = input.direction ?? this.facingDirection;
 
@@ -135,7 +140,6 @@ export class Hero extends GameObject {
         if(isSpaceFree(walls, nextX, nextY)) {
             this.destinationPosition.x = nextX;
             this.destinationPosition.y = nextY;
-            //this.position = this.destinationPosition;
         }
     }
 

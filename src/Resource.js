@@ -1,4 +1,4 @@
-class Resource{
+class Resource {
     constructor() {
         // Everything we want to download
         this.toLoad = {
@@ -13,18 +13,34 @@ class Resource{
 
         // Load each image
         Object.keys(this.toLoad).forEach(key => {
-            const img = new Image();
-            img.src = this.toLoad[key];
-            this.images[key] = {
-                image: img,
-                isLoaded: false
-            }
-            img.onload = () => {
-                this.images[key].isLoaded = true;
-            }
-        })
+            this.loadImage(key, this.toLoad[key]);
+        });
+    }
+
+    loadImage(key, src) {
+        if (this.images[key]) {
+            delete this.images[key];
+        }
+
+        const img = new Image();
+        img.src = src;
+        this.images[key] = {
+            image: img,
+            isLoaded: false
+        }
+        img.onload = () => {
+            this.images[key].isLoaded = true;
+        }
+    }
+
+    addImage(key, src) {
+        this.loadImage(key, src);
+    }
+
+    imageExists(key) {
+        return this.images.hasOwnProperty(key);
     }
 }
 
 // Create one instance for the whole app to use
-export const resources = new Resource()
+export const resources = new Resource();

@@ -1,5 +1,6 @@
 import {Vector2} from "./Vector2.js";
 import {GameObject} from "/LifeMap-Adventure/src/GameObject.js";
+import {printGrid} from "./helpers/grid.js";
 
 
 export class Sprite extends GameObject {
@@ -23,6 +24,8 @@ export class Sprite extends GameObject {
         this.scale = scale ?? 1;
         this.position = position ?? new Vector2(0,0);
         this.animation = animation ?? null;
+        this.cropY = 1;
+        this.cropX = 1;
         this.buildFrameMap();
     }
 
@@ -64,6 +67,12 @@ export class Sprite extends GameObject {
         const frameSizeX = this.frameSize.x;
         const frameSizeY = this.frameSize.y;
 
+
+        if (this.scale !== 1) {
+            this.cropX = this.scale;
+            this.cropY = this.scale;
+        }
+
         ctx.drawImage(
             this.resource.image,
             frameCoordX,
@@ -72,9 +81,10 @@ export class Sprite extends GameObject {
             frameSizeY, // How much to crop from the sprite sheet(y)
             x, // Where to place this on canvas tag X
             y, // Where to place this on canvas tag Y
-            frameSizeX * this.scale, // How large to scale it (X)
-            frameSizeY * this.scale, // How large to scale it (Y)
+            frameSizeX * this.cropX, // How large to scale it (X)
+            frameSizeY * this.cropY, // How large to scale it (Y)
         );
+        //console.log("Drawing image at position:", printGrid(x,y));
     }
 
 }

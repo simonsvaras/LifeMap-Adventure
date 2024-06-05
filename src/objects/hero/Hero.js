@@ -1,7 +1,7 @@
 import {GameObject} from "../../GameObject.js";
 import {Vector2} from "../../Vector2.js";
 import {DOWN, LEFT, RIGHT, UP} from "../../Input.js";
-import {gridCells, isSpaceFree} from "../../helpers/grid.js";
+import {gridCells, isSpaceFree, printGrid} from "../../helpers/grid.js";
 import {walls} from "../../levels/level1.js";
 import {Sprite} from "../../Sprite.js";
 import {resources} from "../../Resource.js";
@@ -65,6 +65,10 @@ export class Hero extends GameObject {
 
         this.stepSound = document.getElementById('step-effect');
 
+        this.isFormOneVisible = false;
+        this.isFormTwoVisible = false;
+        this.isFormThreeVisible = false;
+
         events.on("HERO_PICKS_UP_ITEM", this, data => {
             this.onPickUpItem(data);
         })
@@ -77,14 +81,72 @@ export class Hero extends GameObject {
             return
         }
 
-        const distance = moveTowards(this, this.destinationPosition, 1.5) ;
+        // Check if hero reached specific position (e.g., x: 100, y: 100)
+        if (this.position.x === gridCells(15) && this.position.y === gridCells(39)) {
+            this.destinationPosition.y += gridCells(1);
+            events.emit("SHOW_DRAG&DROP");
+        }
+
+        if (this.position.x === gridCells(19) && this.position.y === gridCells(40)) {
+            console.log("remove poster1");
+            events.emit("REMOVE_POSTER1");
+        }
+
+        if(!this.isFormOneVisible) {
+            if (this.position.x === gridCells(14) && this.position.y === gridCells(47)) {
+                console.log("Show form 1");
+                events.emit("SHOW_FORM_ONE");
+                this.isFormOneVisible = true;
+            }
+        }else {
+            if (this.position.x !== gridCells(14) || this.position.y !== gridCells(47)) {
+                console.log("hide form 1");
+                events.emit("HIDE_FORM_ONE");
+                this.isFormOneVisible = false;
+            }
+        }
+
+        if(!this.isFormTwoVisible) {
+            if (this.position.x === gridCells(17) && this.position.y === gridCells(47)) {
+                console.log("Show form 1");
+                events.emit("SHOW_FORM_TWO");
+                this.isFormTwoVisible = true;
+            }
+        }else {
+            if (this.position.x !== gridCells(17) || this.position.y !== gridCells(47)) {
+                console.log("hide form 1");
+                events.emit("HIDE_FORM_TWO");
+                this.isFormTwoVisible = false;
+            }
+        }
+
+        if(!this.isFormThreeVisible) {
+            if (this.position.x === gridCells(20) && this.position.y === gridCells(47)) {
+                console.log("Show form 1");
+                events.emit("SHOW_FORM_THREE");
+                this.isFormThreeVisible = true;
+            }
+        }else {
+            if (this.position.x !== gridCells(20) || this.position.y !== gridCells(47)) {
+                console.log("hide form 1");
+                events.emit("HIDE_FORM_THREE");
+                this.isFormThreeVisible = false;
+            }
+        }
+
+        const distance = moveTowards(this, this.destinationPosition, 2.5) ;
         const hasArrived = distance <= 0;
         // Attempt to move again if the hero is at his position
         if(hasArrived){
+
+
             this.tryMove(root);
+            printGrid(this.position.x, this.position.y);
         }
 
         this.tryEmitPosition()
+
+
 
     }
 

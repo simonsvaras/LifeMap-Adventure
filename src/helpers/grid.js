@@ -9,3 +9,7 @@ export const isSpaceFree = (walls, x, y) => {
     const isWallPresent = walls.has(str);
     return !isWallPresent;
 }
+
+export const printGrid = (x,y) => {
+    console.log(x/16 + " " + y/16);
+}

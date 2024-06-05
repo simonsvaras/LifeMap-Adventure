@@ -55,6 +55,12 @@ export class GameObject{
         this.children.push(gameObject);
     }
 
+    // Kontroluje, zda dítě s daným id existuje
+    isExist(id) {
+        return this.children.some(child => child.id === id);
+    }
+
+
     removeChild(gameObject){
         events.unsubscribe(gameObject);
         this.children = this.children.filter(g => {

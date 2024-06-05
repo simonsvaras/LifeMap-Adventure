@@ -1,0 +1,17 @@
+
+
+.D3Rotate {
+      transform-style: preserve-3d; /* Umožňuje 3D transformace */
+      animation: rotate 10s infinite linear;
+  }
+
+
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}

@@ -68,6 +68,7 @@ export class Hero extends GameObject {
         this.isFormOneVisible = false;
         this.isFormTwoVisible = false;
         this.isFormThreeVisible = false;
+        this.isCSSArticeleVisivle = false;
 
         events.on("HERO_PICKS_UP_ITEM", this, data => {
             this.onPickUpItem(data);
@@ -92,6 +93,7 @@ export class Hero extends GameObject {
             events.emit("REMOVE_POSTER1");
         }
 
+        // FORMS
         if(!this.isFormOneVisible) {
             if (this.position.x === gridCells(14) && this.position.y === gridCells(47)) {
                 console.log("Show form 1");
@@ -134,6 +136,23 @@ export class Hero extends GameObject {
             }
         }
 
+
+        // CSS SELECTORS
+        if(!this.isCSSArticeleVisivle) {
+            if (this.position.x == gridCells(23) && this.position.y === gridCells(56)) {
+                console.log("Show form 1");
+                events.emit("SHOW_CSS_ARTICLE");
+                this.isCSSArticeleVisivle = true;
+            }
+        }else {
+            if (this.position.x !== gridCells(23) || this.position.y !== gridCells(56)) {
+                console.log("hide form 1");
+                events.emit("HIDE_CSS_ARTICLE");
+                this.isCSSArticeleVisivle = false;
+            }
+        }
+
+
         const distance = moveTowards(this, this.destinationPosition, 2.5) ;
         const hasArrived = distance <= 0;
         // Attempt to move again if the hero is at his position
@@ -141,7 +160,8 @@ export class Hero extends GameObject {
 
 
             this.tryMove(root);
-            printGrid(this.position.x, this.position.y);
+            //printGrid(this.position.x, this.position.y);
+            console.log(this.position.x + " " + this.position.y );
         }
 
         this.tryEmitPosition()

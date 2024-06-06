@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/formOne.css">
     <link rel="stylesheet" href="styles/formTwo.css">
     <link rel="stylesheet" href="styles/keyFrames.css">
+    <link rel="stylesheet" href="styles/cssSelektor.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sprite Sheet Demo</title>
   </head>
@@ -53,31 +54,39 @@
       </form>
     </div>
 
-    <div id="CCSSelector">
+    <div id="CCSSelector" class="container">
       <div class="content">
-        <h1>Advanced CSS Selectors Example</h1>
-        <ul class="main-list">
-          <li class="item">Item 1
-            <ul class="sub-list">
-              <li>Sub-item 1</li>
-              <li>Sub-item 2</li>
-            </ul>
-          </li>
-          <li class="item">Item 2
-            <ul class="sub-list">
-              <li>Sub-item 1</li>
-              <li>Sub-item 2</li>
-            </ul>
-          </li>
-          <li class="item">Item 3</li>
-        </ul>
-        <p>In this paragraph, <span class="highlight">some text is highlighted</span>, and here is a <a href="#">link</a>.</p>
-        <div class="posts">
-          <article class="post">Post 1</article>
-          <article class="post important">Important Post</article>
-          <article class="post">Post 3</article>
-        </div>
+      <h1>Advanced CSS Selectors Example</h1>
+      <ul class="main-list">
+        <li class="item">Item 1
+          <ul class="sub-list">
+            <li class="sub-item special">Sub-item 1</li>
+            <li class="sub-item">Sub-item 2</li>
+            <li class="sub-item">Sub-item 3</li>
+          </ul>
+        </li>
+        <li class="item">Item 2
+          <ul class="sub-list">
+            <li class="sub-item">Sub-item 1</li>
+            <li class="sub-item">Sub-item 2</li>
+            <li class="sub-item">Sub-item 3</li>
+          </ul>
+        </li>
+        <li class="item">Item 3
+          <ul class="sub-list">
+            <li class="sub-item">Sub-item 1</li>
+            <li class="sub-item important">Sub-item 2</li>
+            <li class="sub-item">Sub-item 3</li>
+          </ul>
+        </li>
+      </ul>
+      <p>In this paragraph, <span class="highlight">some text is highlighted</span>, and here is a <a href="#" class="external">link</a>.</p>
+      <div class="posts">
+        <article class="post">Post 1</article>
+        <article class="post important">Important Post</article>
+        <article class="post">Post 3</article>
       </div>
+    </div>
     </div>
 
 

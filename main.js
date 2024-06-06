@@ -43,6 +43,9 @@ function startGame() {
     const formOne = document.getElementById('formOne');
     const formContainerTwo = document.getElementById('formContainerTwo');
 
+// CSS article
+    const cssAricle = document.getElementById('CCSSelector');
+
 // Establish the root scene
     const mainScene = new GameObject({
         position: new Vector2(0, 0)
@@ -59,7 +62,7 @@ function startGame() {
 
     const groundSprite = new Sprite({
         resource: resources.images.ground,
-        frameSize: new Vector2(1000, 1000)
+        frameSize: new Vector2(2000, 2000)
     })
 
     mainScene.addChild(groundSprite);
@@ -267,6 +270,23 @@ function startGame() {
         formContainerTwo.classList.remove('D3Rotate');
         formContainerTwo.classList.add('fadeOut');
         formContainerTwo.style.display = 'none';
+        //formOne.reset();
+
+    });
+
+    // Zobrazení drop zone při události SHOW_FORM
+    events.on("SHOW_CSS_ARTICLE", null, () => {
+        cssAricle.classList.remove('fadeOut');
+        cssAricle.classList.add('fadeIn');
+        cssAricle.style.display = 'block';
+
+    });
+
+    // Zobrazení drop zone při události SHOW_FORM
+    events.on("HIDE_CSS_ARTICLE", null, () => {
+        cssAricle.classList.remove('fadeIn');
+        cssAricle.classList.add('fadeOut');
+        cssAricle.style.display = 'none';
         //formOne.reset();
 
     });

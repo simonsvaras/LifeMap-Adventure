@@ -14,12 +14,56 @@
         "ground"
     ],
     "fileStates": {
-        "Map/mapV1.tmx": {
-            "scale": 1,
+        "C:/Users/svark/Downloads/Animals/Boar.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/svark/Downloads/Animals/Chicken.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/svark/Downloads/Animals/voda/Serene Village - Outside_blackpng.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/svark/Downloads/Animals/vsechno/AllAssetsPreview.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/svark/Downloads/Ground/Grass.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/svark/Downloads/Ground/terrain tiles.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/svark/Downloads/Nature/Decorations.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/svark/Downloads/Nature/waterfalls.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/svark/Downloads/farm bridges free.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/svark/Downloads/farm objects free.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/svark/Downloads/final..tmx": {
+            "scale": 0.4519097222222222,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 545.5,
-                "y": 834.5
+                "x": 633.9761813292355,
+                "y": 576.4425662696889
+            }
+        },
+        "C:/Users/svark/Downloads/pixil-frame-0.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/svark/Downloads/spring farm tilemap.tsx": {
+            "scaleInDock": 1
+        },
+        "Map/mapV1.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 423.3333333333333,
+                "y": 744.6666666666667
             }
         },
         "Map/test1.tmx": {
@@ -127,6 +171,7 @@
     ],
     "project": "map.tiled-project",
     "recentFiles": [
+        "C:/Users/svark/Downloads/final..tmx",
         "punnyWorld/punyworld-overworld-tileset.tsx",
         "Ships/WarShip.tsx",
         "Ships/TransportShip.tsx",
@@ -137,8 +182,7 @@
         "buildings/Taverns.tsx",
         "buildings/Houses.tsx",
         "ground/Cliff.tsx",
-        "ground/Cliff-Water.tsx",
-        "ground/Grass.tsx"
+        "ground/Cliff-Water.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

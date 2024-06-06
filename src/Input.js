@@ -3,6 +3,7 @@ export const LEFT = "LEFT"
 export const RIGHT = "RIGHT"
 export const UP = "UP"
 export const DOWN = "DOWN"
+export const ENTER = "ENTER"
 
 export class Input {
     constructor() {
@@ -23,6 +24,9 @@ export class Input {
             }
             if (e.code === "ArrowRight" || e.code === "KeyD") {
                 this.onArrowPressed(RIGHT);
+            }
+            if (e.code === "Enter") {
+                this.onArrowPressed(ENTER);
             }
         })
 

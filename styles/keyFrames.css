@@ -2,7 +2,7 @@
 
 .D3Rotate {
       transform-style: preserve-3d; /* Umožňuje 3D transformace */
-      animation: rotate 10s infinite linear;
+      animation: rotate 5s infinite linear;
   }
 
 

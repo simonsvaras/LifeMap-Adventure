@@ -1,10 +1,10 @@
-import {resources} from "./src/Resource.js";
-import {Sprite} from "./src/Sprite.js";
-import {Vector2} from "./src/Vector2.js";
-import {GameLoop} from "./src/GameLoop.js";
-import {DOWN, Input, LEFT, RIGHT, UP} from "./src/Input.js";
-import {gridCells, isSpaceFree} from "./src/helpers/grid.js";
-import {GameObject} from "./src/GameObject.js";
+import {resources} from "/LifeMap-Adventure/src/Resource.js";
+import {Sprite} from "/LifeMap-Adventure/src/Sprite.js";
+import {Vector2} from "/LifeMap-Adventure/src/Vector2.js";
+import {GameLoop} from "/LifeMap-Adventure/src/GameLoop.js";
+import {DOWN, Input, LEFT, RIGHT, UP} from "/LifeMap-Adventure/src/Input.js";
+import {gridCells, isSpaceFree} from "/LifeMap-Adventure/src/helpers/grid.js";
+import {GameObject} from "/LifeMap-Adventure/src/GameObject.js";
 import {Hero} from "./src/objects/hero/Hero.js";
 import {Camera} from "./src/Camera.js";
 import {Rod} from "./src/objects/Rod/Rod.js";

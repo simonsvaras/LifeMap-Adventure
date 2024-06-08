@@ -52,7 +52,7 @@ const addVerticalWall = (x, startY, endY, step = 16) => {
 /**
  * Fetches wall coordinates from a JSON file and adds them to the walls set.
  */
-fetch('../../public/walls/mapV2.json')
+fetch('../../LifeMap-Adventure/public/walls/mapV2.json')
     .then(response => response.json())
     .then(data => {
         data.walls.forEach(wall => {

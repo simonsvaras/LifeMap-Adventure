@@ -8,13 +8,13 @@ class Resource {
          * @type {Object}
          */
         this.toLoad = {
-            sky: "/public/sprites/sky.png",
-            ground: "/public/sprites/mapV1.png",
-            home: "/public/sprites/mapV2.png",
-            hero: "/public/sprites/hero-sheet.png",
-            shadow: "/public/sprites/shadow.png",
-            rod: "/public/sprites/rod.png",
-            arrow: "/public/sprites/arrow.jpg",
+            sky: "/LifeMap-Adventure/public/sprites/sky.png",
+            ground: "/LifeMap-Adventure/public/sprites/mapV1.png",
+            home: "/LifeMap-Adventure/public/sprites/mapV2.png",
+            hero: "/LifeMap-Adventure/public/sprites/hero-sheet.png",
+            shadow: "/LifeMap-Adventure/public/sprites/shadow.png",
+            rod: "/LifeMap-Adventure/public/sprites/rod.png",
+            arrow: "/LifeMap-Adventure/public/sprites/arrow.jpg",
         };
 
         /**

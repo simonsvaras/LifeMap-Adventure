@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   overflow: hidden;
   image-rendering: pixelated;
-  background-image: url('/LifeMap-adventure/public/sprites/sky.png');
+  background-image: url('./public/sprites/sky.png');
   font-family: Arial, sans-serif;
 }
 

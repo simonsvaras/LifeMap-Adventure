@@ -4,9 +4,11 @@ class Resource {
         this.toLoad = {
             sky: "/public/sprites/sky.png",
             ground: "/public/sprites/mapV1.png",
+            home: "/public/sprites/mapV2.png",
             hero: "/public/sprites/hero-sheet.png",
             shadow: "/public/sprites/shadow.png",
             rod: "/public/sprites/rod.png",
+            arrow: "/public/sprites/arrow.jpg",
         };
         // A bucket to keep all of our images
         this.images = {};

@@ -1,27 +1,45 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/main-style.css">
     <link rel="stylesheet" href="styles/formOne.css">
-    <link rel="stylesheet" href="styles/formTwo.css">
     <link rel="stylesheet" href="styles/keyFrames.css">
     <link rel="stylesheet" href="styles/cssSelektor.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprite Sheet Demo</title>
   </head>
   <body>
+  <header id="intro" class="intro">
+    <h1>LifeMap - Adventure</h1>
+    <h2>Vítej ve hře</h2>
+    <p>Hra má sloužit jako mé osobní portoflium</p>
+    <p>Aktuální stav hry představuje hrubou předlohu mé vize</p>
+    <section>
+      <h3>Ovládání:</h3>
+      <p class="controls">
+        W -> Pohyb dopředu<br>
+        S -> Pohyb dozadu<br>
+        A -> Pohyb doleva<br>
+        D -> Pohyb doprava
+      </p>
+    </section>
+    <p><span class="note">Poznámka:</span> Kolize nejsou nastaveny, pro jejich ukázku funkčnosti fungují jen na domečku</p>
+  </header>
+
     <button id="start-button">Start Game</button>
-    <canvas id="game-canvas" width="480" height="220"></canvas>
     <audio id="background-music" src="public/audio/Background%20(mp3cut.net).mp3" loop></audio>
+
+    <canvas id="game-canvas" width="480" height="240"></canvas>
+
     <div id="drop-zone">Drop your image here</div>
     <audio id="step-effect" src="public/audio/sand_step-87182%20(mp3cut.net)%20(1).mp3" ></audio>
 
-    <div id="formContainer" class="fadeIn">
+    <div id="formContainer" class="container fadeIn">
       <form id="formOne">
+        <h2>FadeIn Form</h2>
         <label for="username1">Username</label>
-        <input type="text" id="username1" name="username" placeholder="Enter your username"  autofocus>
+        <input type="text" id="username1" name="username" placeholder="Enter your username">
 
         <label for="email1">Email</label>
         <input type="email" id="email1" name="email" placeholder="Enter your email" >
@@ -30,10 +48,11 @@
       </form>
     </div>
 
-    <div id="formContainerTwo" class="rotateIn">
+    <div id="formContainerTwo" class="container rotateIn">
       <form id="formTwo">
+        <h2>Spin-in Form</h2>
         <label for="username2">Username</label>
-        <input type="text" id="username2" name="username" placeholder="Enter your username"  autofocus>
+        <input type="text" id="username2" name="username" placeholder="Enter your username">
 
         <label for="email2">Email</label>
         <input type="email" id="email2" name="email" placeholder="Enter your email" >
@@ -42,56 +61,143 @@
       </form>
     </div>
 
-    <div id="formContainerThree" class="D3Rotate">
+    <div id="formContainerThree" class="container D3Rotate">
       <form id="formThree">
-        <label for="username2">Username</label>
-        <input type="text" id="username3" name="username" placeholder="Enter your username"  autofocus>
+        <h2>3D rotate Form</h2>
+        <label for="username3">Username</label>
+        <input type="text" id="username3" name="username" placeholder="Enter your username">
 
-        <label for="email2">Email</label>
+        <label for="email3">Email</label>
         <input type="email" id="email3" name="email" placeholder="Enter your email" >
 
-        <button id="submitF3" type="submit">Submit</button>
+        <button id="submitF3" class="classSubmit" type="submit">Submit</button>
       </form>
     </div>
 
-    <div id="CCSSelector" class="container">
-      <div class="content">
-      <h1>Advanced CSS Selectors Example</h1>
-      <ul class="main-list">
-        <li class="item">Item 1
-          <ul class="sub-list">
-            <li class="sub-item special">Sub-item 1</li>
-            <li class="sub-item">Sub-item 2</li>
-            <li class="sub-item">Sub-item 3</li>
+    <div id="formContainerFour" class="complexForm">
+      <form id="complexForm">
+        <h2>Complex Form</h2>
+        <label for="name4">Name:</label>
+        <input type="text" id="name4" name="name" placeholder="Enter your name"  autofocus>
+        <span class="error" id="nameError"></span>
+
+        <label for="email4">Email:</label>
+        <input type="email" id="email4" name="email" placeholder="Enter your email" >
+        <span class="error" id="emailError"></span>
+
+        <label for="password4">Password:</label>
+        <input type="password" id="password4" name="password" placeholder="Enter your password"  minlength="8">
+        <span class="error" id="passwordError"></span>
+
+        <label for="confirmPassword4">Confirm Password:</label>
+        <input type="password" id="confirmPassword4" name="confirmPassword" placeholder="Confirm your password" >
+        <span class="error" id="confirmPasswordError"></span>
+
+        <label for="age4">Age:</label>
+        <input type="number" id="age4" name="age" placeholder="Enter your age"  min="18" max="100">
+        <span class="error" id="ageError"></span>
+
+        <label for="bio4">Biography:</label>
+        <textarea id="bio4" name="bio" placeholder="Tell us something about yourself" ></textarea>
+        <span class="error" id="bioError"></span>
+
+        <label for="gender4">Gender:</label>
+        <select id="gender4" name="gender" >
+          <option value="">Select your gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <span class="error" id="genderError"></span>
+
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+
+    <div class="flex-container">
+      <div id="CCSSelector" class="flex-item">
+          <h1>Advanced CSS Selectors Example</h1>
+          <ul class="main-list">
+            <li class="item">Item 1
+              <ul class="sub-list">
+                <li class="sub-item special">Sub-item 1</li>
+                <li class="sub-item">Sub-item 2</li>
+                <li class="sub-item">Sub-item 3</li>
+              </ul>
+            </li>
+            <li class="item">Item 2
+              <ul class="sub-list">
+                <li class="sub-item">Sub-item 1</li>
+                <li class="sub-item">Sub-item 2</li>
+                <li class="sub-item">Sub-item 3</li>
+              </ul>
+            </li>
+            <li class="item">Item 3
+              <ul class="sub-list">
+                <li class="sub-item">Sub-item 1</li>
+                <li class="sub-item important">Sub-item 2</li>
+                <li class="sub-item">Sub-item 3</li>
+              </ul>
+            </li>
           </ul>
-        </li>
-        <li class="item">Item 2
-          <ul class="sub-list">
-            <li class="sub-item">Sub-item 1</li>
-            <li class="sub-item">Sub-item 2</li>
-            <li class="sub-item">Sub-item 3</li>
-          </ul>
-        </li>
-        <li class="item">Item 3
-          <ul class="sub-list">
-            <li class="sub-item">Sub-item 1</li>
-            <li class="sub-item important">Sub-item 2</li>
-            <li class="sub-item">Sub-item 3</li>
-          </ul>
-        </li>
-      </ul>
-      <p>In this paragraph, <span class="highlight">some text is highlighted</span>, and here is a <a href="#" class="external">link</a>.</p>
-      <div class="posts">
-        <article class="post">Post 1</article>
-        <article class="post important">Important Post</article>
-        <article class="post">Post 3</article>
+          <p>In this paragraph, <span class="highlight">some text is highlighted</span>, and here is a <a href="#" class="external">link</a>.</p>
+
       </div>
+
+      <!-- Grid container příklad -->
+      <div id="CCSSelectorGrid">
+        <div class="grid-container flex-item">
+          <div class="grid-item">Grid Item 1</div>
+          <div class="grid-item">Grid Item 2</div>
+          <div class="grid-item">Grid Item 3</div>
+          <div class="grid-item">Grid Item 4</div>
+          <div class="grid-item">Grid Item 5</div>
+          <div class="grid-item">Grid Item 6</div>
+          <div class="grid-item">Grid Item 7</div>
+          <div class="grid-item">Grid Item 8</div>
+          <div class="grid-item">Grid Item 9</div>
+        </div>
+      </div>
+
+      <!-- Popis selektoru 1-->
+      <div id="selectorOneDescription" class="selectorDescription flex-item">
+        <strong>Selector:</strong> <code>.main-list > .item:first-child > .sub-list .sub-item:first-child</code><br>
+        <strong>Description:</strong> Selects the first <code>.sub-item</code> inside the first <code>.item</code> of <code>.main-list</code>.
+      </div>
+
+
+      <!-- Popis selektoru -->
+      <div id="selectorTwoDescription" class="selectorDescription flex-item">
+        <strong>Selector:</strong> <code>.item ~ .item</code><br>
+        <strong>Description:</strong> Selects all <code>.item</code> elements that are preceded by a sibling <code>.item</code> element.
+      </div>
+
+      <!-- Popis selektoru -->
+      <div id="selectorThreeDescription" class="selectorDescription flex-item">
+        <strong>Selector:</strong> <code>.highlight::before</code> and <code>.highlight::after</code><br>
+        <strong>Description:</strong> Selects the <code>::before</code> and <code>::after</code> pseudo-elements of all elements with the class <code>.highlight</code>. The <code>::before</code> pseudo-element is typically used to insert content before the actual content of the element, while the <code>::after</code> pseudo-element is used to insert content after the actual content of the element.
+      </div>
+
+      <!-- Popis selektoru -->
+      <div id="selectorFourDescription" class="selectorDescription flex-item">
+        <strong>Selector:</strong> <code>.main-list > .item:nth-child(odd) .sub-list .sub-item:not(.special):last-child</code><br>
+        <strong>Description:</strong> Selects the last <code>.sub-item</code> that does not have the class <code>.special</code>, within all odd <code>.item</code> elements of <code>.main-list</code>.
+      </div>
+
+      <div id="selectorFiveDescription" class="selectorDescription flex-item">
+        <strong>Selector:</strong> <code>.grid-container > .grid-item:nth-child(3n):hover::after</code><br>
+        <strong>Description:</strong> Selects every third <code>.grid-item</code> inside a <code>.grid-container</code> and applies styles when hovered, including an <code>::after</code> pseudo-element that appears.
+      </div>
+
+
     </div>
-    </div>
+
 
 
 
     <script type="module" src="main.js"></script>
     <script src="formValidator.js"></script>
+    <script type="module" src="htmlEventHandler.js"></script>
   </body>
 </html>

@@ -1,6 +1,92 @@
-#CCSSelector{
-    left: 30%;
+#CCSSelector {
     display: none;
+    width: 40%;
+    height: 60%;
+    padding: 20px;
     background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto;
 }
 
+#CCSSelectorGrid {
+    display: none;
+    height: 30%;
+    max-width: 45%;
+    overflow: auto;
+}
+
+.selectorDescription {
+    display: none;
+    flex: 1;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+.flex-container {
+    display: flex;
+    align-items: flex-start;
+    width: 70%;
+    gap: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    align-content: center;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.flex-item {
+    flex: 1;
+    max-width: 40%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 70%;
+    height: 40%;
+}
+
+.grid-item {
+    background-color: lightgrey;
+    max-height: 50%;
+    max-width: 50%;
+    padding: 25px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.addStarGrid:hover::after {
+    content: " ★";
+    color: gold;
+}
+
+.addStarGrid:hover {
+    font-weight: bold;
+}
+
+.addStar::before {
+    content: "★ ";
+    color: gold;
+}
+
+.addStar::after {
+    content: " ★";
+    color: gold;
+}

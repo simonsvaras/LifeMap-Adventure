@@ -5,13 +5,14 @@
     },
     "activeFile": "Map/mapV1.tmx",
     "expandedProjectPaths": [
-        ".",
+        "miscellenaus",
         "buildings",
+        "punnyWorld",
+        ".",
+        "ground",
         "Map",
         "trees",
-        "miscellenaus",
-        "Ships",
-        "ground"
+        "Ships"
     ],
     "fileStates": {
         "C:/Users/svark/Downloads/Animals/Boar.tsx": {
@@ -59,11 +60,11 @@
             "scaleInDock": 1
         },
         "Map/mapV1.tmx": {
-            "scale": 0.75,
-            "selectedLayer": 0,
+            "scale": 1.5,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 423.3333333333333,
-                "y": 744.6666666666667
+                "x": 861.6666666666667,
+                "y": 695.6666666666666
             }
         },
         "Map/test1.tmx": {
@@ -83,7 +84,7 @@
             "scaleInEditor": 1
         },
         "buildings/Houses.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 0.75,
             "scaleInEditor": 1
         },
         "buildings/Market.tsx": {
@@ -95,7 +96,7 @@
             "scaleInEditor": 1
         },
         "ground/Cliff-Water.tsx": {
-            "scaleInDock": 0.33,
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "ground/Cliff.tsx": {
@@ -107,7 +108,7 @@
             "scaleInEditor": 1
         },
         "ground/Shore.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 1.5,
             "scaleInEditor": 1
         },
         "ground/TexturedGrass.tsx": {
@@ -143,7 +144,7 @@
             "scaleInEditor": 1
         }
     },
-    "last.imagePath": "C:/Users/svark/Downloads",
+    "last.imagePath": "C:/Users/svark/Downloads/PixelWoods/PixelWoods/Waterfall",
     "map.height": 100,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
@@ -171,7 +172,6 @@
     ],
     "project": "map.tiled-project",
     "recentFiles": [
-        "C:/Users/svark/Downloads/final..tmx",
         "punnyWorld/punyworld-overworld-tileset.tsx",
         "Ships/WarShip.tsx",
         "Ships/TransportShip.tsx",
@@ -182,7 +182,8 @@
         "buildings/Taverns.tsx",
         "buildings/Houses.tsx",
         "ground/Cliff.tsx",
-        "ground/Cliff-Water.tsx"
+        "ground/Cliff-Water.tsx",
+        "ground/Grass.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

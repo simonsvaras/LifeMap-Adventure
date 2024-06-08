@@ -2,6 +2,10 @@ export const gridCells = n => {
     return n * 16;
 }
 
+export const toGrid = n => {
+    return n/16;
+}
+
 export const isSpaceFree = (walls, x, y) => {
     // Convert to string format for easy lookup
     const str = `${x},${y}`;

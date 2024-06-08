@@ -1,47 +1,18 @@
 #formContainer {
     display: none; /* Původně je formulář skrytý */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    width: 300px;
-    text-align: center;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -60%);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
+#formContainerTwo {
+    display: none;
+    left: 40%;
+    top: 34%;
 }
 
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
-    to {
-        opacity: 0;
-        transform: translate(-50%, -40%);
-        visibility: hidden;
-    }
-}
-
-.fadeOut {
-    animation: fadeOut 1s ease-out forwards;
-}
-
-.fadeIn {
-    animation: fadeIn 1s ease-out;
+#formContainerThree {
+    display: none;
+    left: 40%;
+    top: 34%;
+    perspective: 1000px; /* Nastavení 3D perspektivy */
 }
 
 label {
@@ -56,17 +27,22 @@ input[type="text"], input[type="email"] {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="text"]:focus, input[type="email"]:focus {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
     transform: scale(1.05);
+    -webkit-box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
     box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
     border-color: #2196F3;
 }
 
-#submitF1 {
+#submitF1, #submitF2, #submitF3 {
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;
@@ -74,12 +50,79 @@ input[type="text"]:focus, input[type="email"]:focus {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    -webkit-transition: background-color 0.3s ease, transform 0.3s ease;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#submitF1:hover {
+#submitF1:hover, #submitF2:hover, #submitF3:hover {
     background-color: #45a049;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
     transform: scale(1.05);
+}
+
+#formContainerFour {
+    display: none;
+    max-width: 600px;
+    width: 100%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 75vh; /* Max height 90% of the viewport height */
+    overflow-y: auto; /* Add vertical scroll if content overflows */
+
+}
+.complexForm h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+}
+.complexForm label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+.complexForm input, .complexForm select, .complexForm textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+.complexForm input:focus, .complexForm select:focus, .complexForm textarea:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.complexForm input[type="submit"] {
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.complexForm input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+.complexForm .error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    text-align: left;
 }
 
 .error {

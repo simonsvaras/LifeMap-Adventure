@@ -1,17 +1,171 @@
-
-
 .D3Rotate {
-      transform-style: preserve-3d; /* Umožňuje 3D transformace */
-      animation: rotate 5s infinite linear;
-  }
+    -webkit-transform-style: preserve-3d; /* Umožňuje 3D transformace */
+    transform-style: preserve-3d; /* Umožňuje 3D transformace */
+    -webkit-animation: rotate 5s infinite linear;
+    animation: rotate 5s infinite linear;
+}
 
+.fadeOut {
+    -webkit-animation: fadeOut 1s ease-out forwards;
+    animation: fadeOut 1s ease-out forwards;
+}
 
+.fadeIn {
+    -webkit-animation: fadeIn 1s ease-out;
+    animation: fadeIn 1s ease-out;
+}
 
-@keyframes rotate {
+.fadeOutCSS {
+    -webkit-animation: fadeOutCSS 1s ease-out forwards;
+    animation: fadeOutCSS 1s ease-out forwards;
+}
+
+.fadeInCSS {
+    -webkit-animation: fadeInCSS 1s ease-out;
+    animation: fadeInCSS 1s ease-out;
+}
+
+.rotateIn {
+    -webkit-animation: swirl-in-fwd 0.6s ease-out both;
+    animation: swirl-in-fwd 0.6s ease-out both;
+}
+
+@-webkit-keyframes rotate {
     from {
+        -webkit-transform: rotateY(0deg);
         transform: rotateY(0deg);
     }
     to {
+        -webkit-transform: rotateY(360deg);
         transform: rotateY(360deg);
+    }
+}
+
+@keyframes rotate {
+    from {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+    to {
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+        -webkit-transform: translate(-50%, -60%);
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        -webkit-transform: translate(-50%, -60%);
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+@-webkit-keyframes fadeInCSS {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInCSS {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeOut {
+    from {
+        opacity: 1;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: translate(-50%, -40%);
+        transform: translate(-50%, -40%);
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: translate(-50%, -40%);
+        transform: translate(-50%, -40%);
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes fadeOutCSS {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeOutCSS {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes swirl-in-fwd {
+    0% {
+        -webkit-transform: rotate(-540deg) scale(0);
+        transform: rotate(-540deg) scale(0);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: rotate(0) scale(1);
+        transform: rotate(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes swirl-in-fwd {
+    0% {
+        -webkit-transform: rotate(-540deg) scale(0);
+        transform: rotate(-540deg) scale(0);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: rotate(0) scale(1);
+        transform: rotate(0) scale(1);
+        opacity: 1;
     }
 }

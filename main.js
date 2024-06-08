@@ -1,9 +1,9 @@
-import {resources} from "/src/Resource.js";
-import {Sprite} from "/src/Sprite.js";
-import {Vector2} from "/src/Vector2.js";
-import {GameLoop} from "/src/GameLoop.js";
-import {DOWN, Input, LEFT, RIGHT, UP} from "/src/Input.js";
-import {gridCells, isSpaceFree} from "/src/helpers/grid.js";
+import {resources} from "./src/Resource.js";
+import {Sprite} from "./src/Sprite.js";
+import {Vector2} from "./src/Vector2.js";
+import {GameLoop} from "./src/GameLoop.js";
+import {DOWN, Input, LEFT, RIGHT, UP} from "./src/Input.js";
+import {gridCells, isSpaceFree} from "./src/helpers/grid.js";
 import {GameObject} from "./src/GameObject.js";
 import {Hero} from "./src/objects/hero/Hero.js";
 import {Camera} from "./src/Camera.js";

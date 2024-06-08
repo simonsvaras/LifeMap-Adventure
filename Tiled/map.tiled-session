@@ -5,14 +5,14 @@
     },
     "activeFile": "Map/mapV1.tmx",
     "expandedProjectPaths": [
+        ".",
         "miscellenaus",
         "buildings",
-        "punnyWorld",
-        ".",
-        "ground",
         "Map",
+        "Ships",
         "trees",
-        "Ships"
+        "punnyWorld",
+        "ground"
     ],
     "fileStates": {
         "C:/Users/svark/Downloads/Animals/Boar.tsx": {
@@ -60,11 +60,11 @@
             "scaleInDock": 1
         },
         "Map/mapV1.tmx": {
-            "scale": 1.5,
+            "scale": 2,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 861.6666666666667,
-                "y": 695.6666666666666
+                "x": 168,
+                "y": 593.5
             }
         },
         "Map/test1.tmx": {
@@ -113,6 +113,10 @@
         },
         "ground/TexturedGrass.tsx": {
             "scaleInDock": 3,
+            "scaleInEditor": 1
+        },
+        "ground/waterfalls.tsx": {
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "miscellenaus/Bridge.tsx": {
@@ -168,10 +172,12 @@
         "ground/Shore.tsx",
         "Ships/TransportShip.tsx",
         "Ships/WarShip.tsx",
-        "punnyWorld/punyworld-overworld-tileset.tsx"
+        "punnyWorld/punyworld-overworld-tileset.tsx",
+        "ground/waterfalls.tsx"
     ],
     "project": "map.tiled-project",
     "recentFiles": [
+        "ground/waterfalls.tsx",
         "punnyWorld/punyworld-overworld-tileset.tsx",
         "Ships/WarShip.tsx",
         "Ships/TransportShip.tsx",
@@ -182,8 +188,7 @@
         "buildings/Taverns.tsx",
         "buildings/Houses.tsx",
         "ground/Cliff.tsx",
-        "ground/Cliff-Water.tsx",
-        "ground/Grass.tsx"
+        "ground/Cliff-Water.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

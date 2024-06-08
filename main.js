@@ -9,19 +9,21 @@ import {Hero} from "./src/objects/hero/Hero.js";
 import {Camera} from "./src/Camera.js";
 import {Rod} from "./src/objects/Rod/Rod.js";
 import {events} from "./src/Events.js";
-import {startEvents} from "/htmlEventHandler.js";
 import {loadMap} from "./loadNewMap.js";
 
-// MAP
+// Global variable to track the current map
+/**
+ * @type {number}
+ */
 export let map = 1;
 
 window.addEventListener('load', () => {
-
-    // Přidání event listeneru na tlačítko pro spuštění hry
+    /**
+     * Event listener for the 'start-button' to start the game and play background music.
+     */
     document.getElementById('start-button').addEventListener('click', () => {
         const backgroundMusic = document.getElementById('background-music');
         backgroundMusic.play().then(() => {
-            // Skryjte tlačítko po spuštění hudby
             document.getElementById('start-button').style.display = 'none';
             startGame();
         }).catch((error) => {
@@ -30,23 +32,24 @@ window.addEventListener('load', () => {
     });
 });
 
-
+/**
+ * Initializes and starts the game.
+ */
 function startGame() {
-
-// Grabbing the canvas to draw to
+    // Grabbing the canvas to draw on
     const canvas = document.querySelector("#game-canvas");
     const ctx = canvas.getContext("2d");
 
-// Drag & Drop
+    // Drag & Drop zone
     const dropZone = document.getElementById('drop-zone');
 
-// Posters
+    // Poster key
     const posterKey = "poster1";
 
-// Intro
+    // Intro element
     const intro = document.getElementById('intro');
 
-// Forms
+    // Form containers
     const formContainer = document.getElementById('formContainer');
     const formOne = document.getElementById('formOne');
     const formContainerTwo = document.getElementById('formContainerTwo');
@@ -54,8 +57,7 @@ function startGame() {
     const complexFormContainer = document.getElementById('formContainerFour');
     const complexForm = document.getElementById('complexForm');
 
-
-// CSS article
+    // CSS article elements
     const cssAricle = document.getElementById('CCSSelector');
     const cssGrid = document.getElementById('CCSSelectorGrid');
     const cssStyle1 = document.querySelectorAll('.main-list > .item:first-child > .sub-list .sub-item:first-child');
@@ -69,53 +71,52 @@ function startGame() {
     const cssStyle5 = document.querySelectorAll('.grid-container > .grid-item:nth-child(3n)');
     const selectorFiveDescription = document.getElementById('selectorFiveDescription');
 
-
-
-
-
-
-// Establish the root scene
+    // Establish the root scene
     const mainScene = new GameObject({
         position: new Vector2(0, 0)
-    })
+    });
 
-    const posterOne = new  Sprite({});
-
+    // Create sprites and add them to the scene
+    const posterOne = new Sprite({});
 
     const groundSprite = new Sprite({
         resource: resources.images.home,
         frameSize: new Vector2(2000, 2000)
-    })
+    });
 
     mainScene.addChild(groundSprite);
 
+    // Create hero and add to scene
     const hero = new Hero(gridCells(35), gridCells(40));
     mainScene.addChild(hero);
 
+    // Create camera and add to scene
     const camera = new Camera();
     mainScene.addChild(camera);
 
-    const rod = new Rod(gridCells(45), gridCells(45))
-    mainScene.addChild(rod)
-
+    // Create rods and add to scene
+    const rod = new Rod(gridCells(45), gridCells(45));
+    mainScene.addChild(rod);
     mainScene.addChild(new Rod(gridCells(45), gridCells(46)));
     mainScene.addChild(new Rod(gridCells(45), gridCells(47)));
 
-
-
+    // Initialize input
     mainScene.input = new Input();
 
-// Establish update and draw main scene
+    /**
+     * Update function to be called each frame.
+     * @param {number} delta - Time elapsed since the last frame.
+     */
     const update = (delta) => {
         mainScene.stepEntry(delta, mainScene);
     };
 
-
+    /**
+     * Draw function to render the scene each frame.
+     */
     const draw = () => {
-        // Clear anything stale
+        // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        //skySprite.drawImage(ctx, 0, 0)
 
         // Save the current state (for the camera)
         ctx.save();
@@ -123,149 +124,132 @@ function startGame() {
         // Offset by camera position
         ctx.translate(camera.position.x, camera.position.y);
 
-        // Draw object in the mounted scene
+        // Draw objects in the main scene
         mainScene.draw(ctx, 0, 0);
 
-
-        if(map === 0) {
-
-
+        // Draw map-specific text on the canvas
+        if (map === 0) {
             ctx.font = '10px Arial';
             ctx.fillStyle = 'red';
             ctx.textAlign = 'center';
 
-            // Přidání textu na canvas
+            // Add text to canvas
             let text = 'Add posters';
-            ctx.fillText(text, gridCells(15), gridCells(39)); // Vykreslení textu uprostřed canvasu
+            ctx.fillText(text, gridCells(15), gridCells(39));
 
-
-            // Přidání textu na canvas
             text = 'Del posters';
-            ctx.fillText(text, gridCells(19), gridCells(39)); // Vykreslení textu uprostřed canvasu
+            ctx.fillText(text, gridCells(19), gridCells(39));
 
             text = 'Forms';
-            ctx.fillText(text, gridCells(16), gridCells(49)); // Vykreslení textu uprostřed canvasu
+            ctx.fillText(text, gridCells(16), gridCells(49));
 
             text = 'CSS';
-            ctx.fillText(text, gridCells(24), gridCells(49)); // Vykreslení textu uprostřed canvasu
-
+            ctx.fillText(text, gridCells(24), gridCells(49));
 
             ctx.font = '26px Tahoma';
             text = '->';
-            ctx.fillText(text, gridCells(53), gridCells(44)); // Vykreslení textu uprostřed canvasu
+            ctx.fillText(text, gridCells(53), gridCells(44));
 
             text = '<-';
-            ctx.fillText(text, gridCells(37), gridCells(42)); // Vykreslení textu uprostřed canvasu
-
-
-
-
-            //ctx.drawImage(resources.images.arrow, gridCells(16), gridCells(49) );
+            ctx.fillText(text, gridCells(37), gridCells(42));
         }
 
-        if(map === 1) {
+        if (map === 1) {
             ctx.font = '12px Arial';
             ctx.fillStyle = 'white';
             ctx.textAlign = 'center';
 
-            // Přidání textu na canvas
             let text = 'Teleport';
-            ctx.fillText(text, gridCells(50), gridCells(39)); // Vykreslení textu uprostřed canvasu
+            ctx.fillText(text, gridCells(50), gridCells(39));
 
-            // Přidání textu na canvas
             text = 'main Map';
-            ctx.fillText(text, gridCells(50), gridCells(40)); // Vykreslení textu uprostřed canvasu
-
+            ctx.fillText(text, gridCells(50), gridCells(40));
         }
 
-        // Restore to origin state
+        // Restore to original state
         ctx.restore();
-    }
+    };
 
-
-// Start the game
+    // Start the game loop
     const gameLoop = new GameLoop(update, draw);
     gameLoop.start();
 
+    // Event listeners for drag and drop functionality
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = '#333';
+        dropZone.style.color = '#333';
+    });
 
+    dropZone.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = '#ccc';
+        dropZone.style.color = '#999';
+    });
 
-        // Event listener for drag and drop
-        dropZone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropZone.style.borderColor = '#333';
-            dropZone.style.color = '#333';
-        });
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = '#ccc';
+        dropZone.style.color = '#999';
 
-        dropZone.addEventListener('dragleave', (e) => {
-            e.preventDefault();
-            dropZone.style.borderColor = '#ccc';
-            dropZone.style.color = '#999';
-        });
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            const file = files[0];
+            const reader = new FileReader();
 
-        dropZone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropZone.style.borderColor = '#ccc';
-            dropZone.style.color = '#999';
+            reader.onload = (event) => {
+                if (typeof event.target.result === 'string') {
+                    const img = new Image();
+                    img.onload = () => {
+                        const newWidth = gridCells(7);
+                        const newHeight = gridCells(4);
 
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                const file = files[0];
-                const reader = new FileReader();
+                        const newScaleX = newWidth / img.width;
+                        const newScaleY = newHeight / img.height;
 
-                reader.onload = (event) => {
-                    if (typeof event.target.result === 'string') {
-                        const img = new Image();
-                        img.onload = () => {
+                        if (resources.imageExists(posterKey)) {
+                            mainScene.removeChild(posterOne);
+                        }
 
-                            const newWidth = gridCells(7);
-                            const newHeight = gridCells(4);
+                        // Add image to resources
+                        resources.addImage(posterKey, img.src);
 
-                            const newScaleX = newWidth / img.width;
-                            const newScaleY = newHeight / img.height;
+                        posterOne.resource = resources.images[posterKey];
+                        posterOne.frameSize = new Vector2(img.width, img.height);
+                        posterOne.position = new Vector2(gridCells(13), gridCells(35));
+                        posterOne.cropX = newScaleX;
+                        posterOne.cropY = newScaleY;
 
-                            if (resources.imageExists(posterKey)) {
-                                mainScene.removeChild(posterOne);
-                            }
+                        mainScene.addChild(posterOne);
 
-                            // Přidání obrázku do resources
-                            resources.addImage(posterKey, img.src);
+                        // Hide drop zone
+                        dropZone.style.display = 'none';
+                    };
 
+                    img.src = event.target.result;
+                    console.log("Image source:", img.src);
+                } else {
+                    console.error("FileReader result is not a string");
+                }
+            };
 
-                            posterOne.resource = resources.images[posterKey];
-                            posterOne.frameSize = new Vector2(img.width, img.height);
-                            posterOne.position = new Vector2(gridCells(13), gridCells(35));
-                            posterOne.cropX = newScaleX;
-                            posterOne.cropY = newScaleY;
+            reader.readAsDataURL(file);
+        }
+    });
 
-                            mainScene.addChild(posterOne);
+    // Event listeners for various events
+    events.on("TELEPORT_HOME", null, () => {
+        loadMap();
+        groundSprite.resource = resources.images.home;
 
-                            // Skrýt drop zone
-                            dropZone.style.display = 'none';
-                        };
+        map = 1;
 
-                        img.src = event.target.result;
-                        console.log("Image source:", img.src);
-                    } else {
-                        console.error("FileReader result is not a string");
-                    }
-                };
+        hero.position.x = gridCells(36);
+        hero.position.y = gridCells(40);
 
-                reader.readAsDataURL(file);
-            }
-        });
-
-        events.on("TELEPORT_HOME", null, () => {
-            loadMap();
-            groundSprite.resource = resources.images.home;
-
-            map = 1;
-
-            hero.position.x = gridCells(36);
-            hero.position.y = gridCells(40);
-
-            hero.destinationPosition.x = gridCells(36);
-            hero.destinationPosition.y = gridCells(40);
-        });
+        hero.destinationPosition.x = gridCells(36);
+        hero.destinationPosition.y = gridCells(40);
+    });
 
     events.on("TELEPORT_MAP1", null, () => {
         loadMap();
@@ -284,73 +268,57 @@ function startGame() {
         mainScene.removeChild(posterOne);
     });
 
-    // Zobrazení drop zone při události SHOW_FORM
     events.on("SHOW_DRAG&DROP", null, () => {
         dropZone.style.display = 'block';
     });
 
-
-    // INTRO
+    // Show intro screen
     events.on("SHOW_INTRO", null, () => {
         intro.classList.remove('fadeOut');
         intro.classList.add('fadeIn');
-
         intro.style.display = 'block';
-
     });
 
-
+    // Hide intro screen
     events.on("HIDE_INTRO", null, () => {
         intro.classList.remove('fadeIn');
-
         intro.classList.add('fadeOut');
         intro.style.display = 'none';
     });
 
-
-    // FORMS
+    // Show and hide form one
     events.on("SHOW_FORM_ONE", null, () => {
         formContainer.classList.remove('fadeOut');
         formContainer.classList.add('fadeIn');
-
         formContainer.style.display = 'block';
-
     });
-
 
     events.on("HIDE_FORM_ONE", null, () => {
         formContainer.classList.remove('fadeIn');
-
         formContainer.classList.add('fadeOut');
         formContainer.style.display = 'none';
         formOne.reset();
-
     });
 
-
+    // Show and hide form two
     events.on("SHOW_FORM_TWO", null, () => {
         formContainerTwo.classList.remove('fadeOut');
         formContainerTwo.classList.add('rotateIn');
         formContainerTwo.style.display = 'block';
-
     });
-
 
     events.on("HIDE_FORM_TWO", null, () => {
         formContainerTwo.classList.remove('rotateIn');
         formContainerTwo.classList.add('fadeOut');
         formContainerTwo.style.display = 'none';
         formOne.reset();
-
     });
 
-
+    // Show and hide form three
     events.on("SHOW_FORM_THREE", null, () => {
         formContainerThree.classList.add('D3Rotate');
         formContainerThree.style.display = 'block';
-
     });
-
 
     events.on("HIDE_FORM_THREE", null, () => {
         formContainerThree.classList.remove('D3Rotate');
@@ -358,12 +326,11 @@ function startGame() {
         formOne.reset();
     });
 
+    // Show and hide complex form
     events.on("SHOW_COMPLEX_FORM", null, () => {
         complexFormContainer.classList.add('fadeIn');
         complexFormContainer.style.display = 'block';
-
     });
-
 
     events.on("HIDE_COMPLEX_FORM", null, () => {
         complexFormContainer.classList.remove('fadeOut');
@@ -371,12 +338,12 @@ function startGame() {
         complexForm.reset();
     });
 
+    // Show and hide CSS article
     events.on("SHOW_CSS_ARTICLE", null, () => {
         cssAricle.classList.remove('fadeOutCSS');
         cssAricle.classList.add('fadeInCSS');
         cssAricle.style.display = 'block';
     });
-
 
     events.on("HIDE_CSS_ARTICLE", null, () => {
         cssAricle.classList.remove('fadeInCSS');
@@ -384,24 +351,20 @@ function startGame() {
         cssAricle.style.display = 'none';
     });
 
-
+    // Show and hide CSS grid
     events.on("SHOW_CSS_GRID", null, () => {
         cssGrid.classList.remove('fadeOutCSS');
         cssGrid.classList.add('fadeInCSS');
         cssGrid.style.display = 'block';
-
     });
-
 
     events.on("HIDE_CSS_GRID", null, () => {
         cssGrid.classList.remove('fadeInCSS');
         cssGrid.classList.add('fadeOutCSS');
         cssGrid.style.display = 'none';
-        //formOne.reset();
-
     });
 
-
+    // Show and hide CSS styles
     events.on("SHOW_CSS_STYLE1", null, () => {
         selectorOneDescription.classList.remove('fadeOutCSS');
         selectorOneDescription.classList.add('fadeInCSS');
@@ -414,9 +377,7 @@ function startGame() {
             element.style.color = 'red';
             element.style.backgroundColor = 'yellow';
         });
-
     });
-
 
     events.on("HIDE_CSS_STYLE1", null, () => {
         selectorOneDescription.classList.add('fadeOutCSS');
@@ -427,7 +388,6 @@ function startGame() {
             element.style.color = element.dataset.originalColor || '';
             element.style.backgroundColor = element.dataset.originalBackgroundColor || '';
         });
-
     });
 
     events.on("SHOW_CSS_STYLE2", null, () => {
@@ -442,7 +402,6 @@ function startGame() {
             element.style.color = 'red';
             element.style.backgroundColor = 'yellow';
         });
-
     });
 
     events.on("HIDE_CSS_STYLE2", null, () => {
@@ -465,7 +424,6 @@ function startGame() {
             element.style.fontWeight = 'bold'
             element.classList.add('addStar');
         });
-
     });
 
     events.on("HIDE_CSS_STYLE3", null, () => {
@@ -491,7 +449,6 @@ function startGame() {
             element.style.color = 'red';
             element.style.backgroundColor = 'yellow';
         });
-
     });
 
     events.on("HIDE_CSS_STYLE4", null, () => {
@@ -513,7 +470,6 @@ function startGame() {
         cssStyle5.forEach(element => {
             element.classList.add('addStarGrid');
         });
-
     });
 
     events.on("HIDE_CSS_STYLE5", null, () => {
@@ -525,7 +481,4 @@ function startGame() {
             element.classList.remove('addStarGrid');
         });
     });
-
-
 }
-

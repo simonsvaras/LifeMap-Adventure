@@ -1,6 +1,12 @@
+/**
+ * Class representing a resource loader for images.
+ */
 class Resource {
     constructor() {
-        // Everything we want to download
+        /**
+         * An object containing the paths to the images to be loaded.
+         * @type {Object}
+         */
         this.toLoad = {
             sky: "/public/sprites/sky.png",
             ground: "/public/sprites/mapV1.png",
@@ -10,7 +16,11 @@ class Resource {
             rod: "/public/sprites/rod.png",
             arrow: "/public/sprites/arrow.jpg",
         };
-        // A bucket to keep all of our images
+
+        /**
+         * An object to store the loaded images.
+         * @type {Object}
+         */
         this.images = {};
 
         // Load each image
@@ -19,6 +29,11 @@ class Resource {
         });
     }
 
+    /**
+     * Load an image and store it in the images object.
+     * @param {string} key - The key to identify the image.
+     * @param {string} src - The source path of the image.
+     */
     loadImage(key, src) {
         if (this.images[key]) {
             delete this.images[key];
@@ -29,20 +44,30 @@ class Resource {
         this.images[key] = {
             image: img,
             isLoaded: false
-        }
+        };
         img.onload = () => {
             this.images[key].isLoaded = true;
-        }
+        };
     }
 
+    /**
+     * Add an image to the resources.
+     * @param {string} key - The key to identify the image.
+     * @param {string} src - The source path of the image.
+     */
     addImage(key, src) {
         this.loadImage(key, src);
     }
 
+    /**
+     * Check if an image with the given key exists in the resources.
+     * @param {string} key - The key to identify the image.
+     * @returns {boolean} True if the image exists, false otherwise.
+     */
     imageExists(key) {
         return this.images.hasOwnProperty(key);
     }
 }
 
-// Create one instance for the whole app to use
+/** The singleton instance of the Resource class. */
 export const resources = new Resource();

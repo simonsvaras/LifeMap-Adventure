@@ -1,18 +1,24 @@
-// These constant we can check from everywhere
-export const LEFT = "LEFT"
-export const RIGHT = "RIGHT"
-export const UP = "UP"
-export const DOWN = "DOWN"
-export const ENTER = "ENTER"
+// Constants for directions and actions that can be checked from anywhere
+export const LEFT = "LEFT";
+export const RIGHT = "RIGHT";
+export const UP = "UP";
+export const DOWN = "DOWN";
+export const ENTER = "ENTER";
 
+/**
+ * Class representing user input.
+ */
 export class Input {
+    /**
+     * Create an Input handler.
+     */
     constructor() {
-
-        // Help list
+        // List of currently held directions
         this.heldDirections = [];
 
+        // Event listeners for keydown and keyup events
         document.addEventListener("keydown", (e) => {
-            // Also check for dedicated direction list
+            // Check for direction keys
             if (e.code === "ArrowUp" || e.code === "KeyW") {
                 this.onArrowPressed(UP);
             }
@@ -28,10 +34,10 @@ export class Input {
             if (e.code === "Enter") {
                 this.onArrowPressed(ENTER);
             }
-        })
+        });
 
         document.addEventListener("keyup", (e) => {
-            // Also check for dedicated direction list
+            // Check for direction keys
             if (e.code === "ArrowUp" || e.code === "KeyW") {
                 this.onArrowReleased(UP);
             }
@@ -44,26 +50,38 @@ export class Input {
             if (e.code === "ArrowRight" || e.code === "KeyD") {
                 this.onArrowReleased(RIGHT);
             }
-        })
+        });
     }
 
+    /**
+     * Get the current direction being held.
+     * @returns {string} The current direction.
+     */
     get direction() {
         return this.heldDirections[0];
     }
 
+    /**
+     * Handle the event when an arrow key is pressed.
+     * @param {string} direction - The direction of the arrow key.
+     */
     onArrowPressed(direction) {
-        // Add this arrow to the queue if it's new
+        // Add this direction to the queue if it's not already present
         if (this.heldDirections.indexOf(direction) === -1) {
             this.heldDirections.unshift(direction);
         }
     }
 
+    /**
+     * Handle the event when an arrow key is released.
+     * @param {string} direction - The direction of the arrow key.
+     */
     onArrowReleased(direction) {
         const index = this.heldDirections.indexOf(direction);
         if (index === -1) {
             return;
         }
-        // Remove this key from the list
+        // Remove this direction from the list
         this.heldDirections.splice(index, 1);
     }
 }
